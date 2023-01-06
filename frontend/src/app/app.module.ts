@@ -8,6 +8,8 @@ import { SideBarComponent } from './core/side-bar/side-bar.component';
 import { HomeComponent } from './core/home/home.component';
 import { PetsComponent } from './pets/pets.component';
 import { AdoptionsComponent } from './adoptions/adoptions.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,16 @@ import { AdoptionsComponent } from './adoptions/adoptions.component';
     SideBarComponent,
     HomeComponent,
     PetsComponent,
-    AdoptionsComponent
+    AdoptionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
