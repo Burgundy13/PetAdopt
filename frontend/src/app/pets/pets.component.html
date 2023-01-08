@@ -66,6 +66,6 @@
 </form>
 <div class="row">
   <div class="col" *ngFor="let itemPet of pets.results">
-    <app-pet-item [pet]="itemPet"></app-pet-item>
+    <app-pet-item [routerLink]="[itemPet._id]" [pet]="itemPet"></app-pet-item>
   </div>
 </div>

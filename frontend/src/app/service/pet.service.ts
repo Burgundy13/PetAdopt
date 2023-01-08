@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { PetList } from '../model/pets';
+import { Pet, PetList } from '../model/pets';
 
 const petsUrl = 'http://localhost:3000/api/pets';
 
@@ -26,6 +26,13 @@ export class PetService {
     return this.http.get(petsUrl, options).pipe(
       map((data: any) => {
         return new PetList(data);
+      })
+    );
+  }
+  getOnePet(id: number): Observable<Pet> {
+    return this.http.get(`${petsUrl}/${id}`).pipe(
+      map((data: any) => {
+        return new Pet(data);
       })
     );
   }

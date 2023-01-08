@@ -11,6 +11,7 @@ import { AdoptionsComponent } from './adoptions/adoptions.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PetItemComponent } from './pets/pet-item/pet-item.component';
+import { PetInfoComponent } from './pets/pet-info/pet-info.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PetItemComponent } from './pets/pet-item/pet-item.component';
     PetsComponent,
     AdoptionsComponent,
     PetItemComponent,
+    PetInfoComponent,
   ],
   imports: [
     BrowserModule,
