@@ -1,0 +1,20 @@
+<div class="col mb-5">
+  <div class="card" style="width: 300px">
+    <img
+      class="card-img-top"
+      src="{{ pet.image }}"
+      alt="pet-img"
+      style="height: 250px; width: 300px"
+    />
+    <div class="card-body">
+      <h4 class="card-title text-center">{{ pet.name }}</h4>
+      <p class="card-text">
+        Category: {{ pet.category | titlecase }} &nbsp; &nbsp; Size:
+        {{ pet.size_kg }}kg
+        <br />
+
+        <span>Sex: {{ pet.sex == "m" ? "Muski" : "Zenski" }}</span>
+      </p>
+    </div>
+  </div>
+</div>

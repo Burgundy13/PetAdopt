@@ -9,6 +9,7 @@ import { PetService } from '../service/pet.service';
   styleUrls: ['./pets.component.css'],
 })
 export class PetsComponent implements OnInit {
+  pets: PetList = new PetList();
   constructor(private service: PetService) {}
 
   ngOnInit(): void {
@@ -17,7 +18,7 @@ export class PetsComponent implements OnInit {
   getAllPets(): void {
     this.service.getPetsList().subscribe({
       next: (response: PetList) => {
-        console.log(response);
+        this.pets = response;
       },
       error: (response: any) => {
         console.log('Error :', response.statusText);
