@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { PetList } from '../model/pets';
@@ -11,8 +11,19 @@ const petsUrl = 'http://localhost:3000/api/pets';
 export class PetService {
   constructor(private http: HttpClient) {}
 
-  getPetsList(): Observable<PetList> {
-    return this.http.get(petsUrl).pipe(
+  getPetsList(params?: any): Observable<PetList> {
+    let options = {};
+    if (params) {
+      options = {
+        params:
+          new HttpParams()
+            .set('sort', params.sort || '')
+            .set('sortDirection', params.sortDirection || '')
+            .set('filter', params.filter && JSON.stringify(params.filter)) ||
+          '',
+      };
+    }
+    return this.http.get(petsUrl, options).pipe(
       map((data: any) => {
         return new PetList(data);
       })

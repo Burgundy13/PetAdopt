@@ -10,13 +10,21 @@ import { PetService } from '../service/pet.service';
 })
 export class PetsComponent implements OnInit {
   pets: PetList = new PetList();
+  params = {
+    sort: '',
+    sortDirection: '',
+    filter: {
+      category: '',
+      sex: '',
+    },
+  };
   constructor(private service: PetService) {}
 
   ngOnInit(): void {
     this.getAllPets();
   }
   getAllPets(): void {
-    this.service.getPetsList().subscribe({
+    this.service.getPetsList(this.params).subscribe({
       next: (response: PetList) => {
         this.pets = response;
       },
@@ -24,5 +32,17 @@ export class PetsComponent implements OnInit {
         console.log('Error :', response.statusText);
       },
     });
+  }
+  onChangeCategory(event: any): void {
+    this.params.filter.category = event.target.value;
+    this.getAllPets();
+  }
+  onChecked(event: any): void {
+    this.params.filter.sex = event.target.value;
+    this.getAllPets();
+  }
+  onChangeSort(event: any): void {
+    this.params.sort = event.target.value;
+    this.getAllPets();
   }
 }

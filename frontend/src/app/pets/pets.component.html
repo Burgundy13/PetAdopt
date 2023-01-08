@@ -1,3 +1,69 @@
+<form>
+  <div class="row m-3">
+    <div class="col-4">
+      <label for="category">Category:</label>
+      <select
+        name="category"
+        id="category"
+        class="form-control-sm mx-3"
+        style="width: 50%"
+        (change)="onChangeCategory($event)"
+      >
+        <option value="">All</option>
+        <option value="cat">Cats</option>
+        <option value="dog">Dogs</option>
+        <option value="other">Others</option>
+      </select>
+    </div>
+    <div class="col-4">
+      <span for="sex">Sex:</span>
+
+      <input
+        type="radio"
+        name="sex"
+        id="sex"
+        class="ms-3"
+        value=""
+        (click)="onChecked($event)"
+      />
+      <label for="sex">Any</label>
+
+      <input
+        type="radio"
+        name="sex"
+        id="sex"
+        class="ms-3"
+        value="f"
+        (click)="onChecked($event)"
+      />
+      <label for="sex">Female</label>
+
+      <input
+        type="radio"
+        name="sex"
+        id="sex"
+        class="ms-3"
+        value="m"
+        (click)="onChecked($event)"
+      />
+      <label for="sex">Male</label>
+    </div>
+    <div class="col-4">
+      <label for="sort">Sort by:</label>
+      <select
+        name="sort"
+        id="sort"
+        class="form-control-sm mx-3"
+        style="width: 50%"
+        (change)="onChangeSort($event)"
+      >
+        <option value="">--</option>
+        <option value="name">Name</option>
+        <option value="size_kg">Size</option>
+      </select>
+    </div>
+  </div>
+</form>
 <div class="row">
   <div class="col" *ngFor="let itemPet of pets.results">
     <app-pet-item [pet]="itemPet"></app-pet-item>
