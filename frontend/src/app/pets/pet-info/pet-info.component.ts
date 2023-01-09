@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+
 import { Pet } from 'src/app/model/pets';
 import { PetService } from 'src/app/service/pet.service';
+import { ToastService } from 'src/app/service/toast.service';
 
 @Component({
   selector: 'app-pet-info',
@@ -11,7 +14,16 @@ import { PetService } from 'src/app/service/pet.service';
 export class PetInfoComponent implements OnInit {
   petInfo: Pet = new Pet();
 
-  constructor(private service: PetService, private route: ActivatedRoute) {}
+  form: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    contact: new FormControl('', Validators.required),
+  });
+
+  constructor(
+    private service: PetService,
+    private route: ActivatedRoute,
+    public toast: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.getPet();
