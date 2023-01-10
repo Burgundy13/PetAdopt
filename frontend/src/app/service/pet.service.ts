@@ -54,4 +54,12 @@ export class PetService {
       })
     );
   }
+
+  deleteAdoption(id: number): Observable<Adoption> {
+    return this.http.delete(`${adoptionUrl}/${id}`).pipe(
+      map((data: any) => {
+        return new Adoption(data);
+      })
+    );
+  }
 }

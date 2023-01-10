@@ -16,7 +16,14 @@
           <td>{{ itemAdoption.petName }}</td>
           <td>{{ itemAdoption.name }}</td>
           <td>{{ itemAdoption.contact }}</td>
-          <td><button class="btn btn-primary">Approve</button></td>
+          <td>
+            <button
+              class="btn btn-primary"
+              (click)="onApprove(itemAdoption._id)"
+            >
+              Approve
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

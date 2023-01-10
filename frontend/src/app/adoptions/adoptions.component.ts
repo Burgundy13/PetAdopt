@@ -26,4 +26,14 @@ export class AdoptionsComponent implements OnInit {
       },
     });
   }
+  onApprove(id: number): void {
+    this.service.deleteAdoption(id).subscribe({
+      next: (response: any) => {
+        this.getAll();
+      },
+      error: (response: any) => {
+        console.log('Error :', response.statusText);
+      },
+    });
+  }
 }
