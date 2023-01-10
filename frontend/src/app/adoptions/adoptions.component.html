@@ -1,1 +1,24 @@
-<p>adoptions works!</p>
+<div class="container mt-3">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Pet Id</th>
+          <th scope="col">Pet Name</th>
+          <th scope="col">Name</th>
+          <th scope="col">Contact</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let itemAdoption of adoptionList.results">
+          <th scope="row">{{ itemAdoption.petId }}</th>
+          <td>{{ itemAdoption.petName }}</td>
+          <td>{{ itemAdoption.name }}</td>
+          <td>{{ itemAdoption.contact }}</td>
+          <td><button class="btn btn-primary">Approve</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
