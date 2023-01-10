@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PetItemComponent } from './pets/pet-item/pet-item.component';
 import { PetInfoComponent } from './pets/pet-info/pet-info.component';
+import { ToastComponent } from './core/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PetInfoComponent } from './pets/pet-info/pet-info.component';
     AdoptionsComponent,
     PetItemComponent,
     PetInfoComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,
